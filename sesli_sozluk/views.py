@@ -1,7 +1,7 @@
 from google.appengine.api import urlfetch
 from django.http import HttpResponse
 from bs4 import BeautifulSoup
-import simplejson
+from django.utils import simplejson
 
 def parse_response(self, word):
 

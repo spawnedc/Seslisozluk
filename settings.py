@@ -1,8 +1,7 @@
 # Django settings for sesli_sozluk project.
-from rocket_engine import on_appengine
 
 # disable debugging on production
-DEBUG = not on_appengine
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
