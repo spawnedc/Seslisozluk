@@ -15,7 +15,7 @@ def parse_response(self, word):
     translations = []
 
     for result in results:
-        title = result.find('div', {'class': 'top'})
+        title = result.find('div', { 'class': 'top' })
         translation = result.find('tbody')
         translations.append({
             'title': title.text,
