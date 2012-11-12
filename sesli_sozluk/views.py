@@ -1,4 +1,4 @@
-from google.appengine.api import urlfetch
+import urllib2
 from django.http import HttpResponse
 from bs4 import BeautifulSoup
 from django.utils import simplejson
@@ -6,9 +6,9 @@ from django.utils import simplejson
 def parse_response(self, word):
 
     url = 'http://m.seslisozluk.net/?word=%s' % word
-    response = urlfetch.fetch(url)
+    response = urllib2.urlopen(url)
 
-    soup = BeautifulSoup(response.content)
+    soup = BeautifulSoup(response.read())
 
     results = soup.findAll('div', {'class': 'resultset'})
 

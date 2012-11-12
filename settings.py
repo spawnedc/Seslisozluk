@@ -113,7 +113,6 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'bs4',
     'sesli_sozluk',
-    'rocket_engine',
 )
 
 # A sample logging configuration. The only tangible logging
