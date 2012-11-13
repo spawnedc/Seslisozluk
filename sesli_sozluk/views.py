@@ -14,18 +14,20 @@ def parse_response(self, word):
     results = soup.findAll('div', {'class': 'resultset'})
 
     translations = []
-    pattern = r'\d{1,3}\.\s([\w\s!,;()\X]+)+'
 
     for result in results:
         title = result.find('div', { 'class': 'top' })
         translation = result.find('tbody')
-        matches = re.findall(pattern, unicode(translation.text), re.UNICODE)
+        matches = []
+
+        for i in xrange(1, len(translation.contents), 2):
+            content = translation.contents[i]
+            matches.append(content.strip())
 
         if matches:
             translations.append({
-                'title': title.text,
+                'title': title.text.strip(),
                 'translations': matches
             })
-    print response.headers['content-type']
 
     return HttpResponse(simplejson.dumps(translations), content_type="application/json")
